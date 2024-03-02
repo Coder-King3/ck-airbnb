@@ -12,7 +12,9 @@ const HomeSectionV2 = memo((props) => {
   const { infoData } = props
 
   /** 定义内部的state */
-  const initialName = Object.keys(infoData.dest_list)?.[0] || ''
+  const initialName = infoData.dest_list
+    ? Object.keys(infoData.dest_list)[0] ?? ''
+    : ''
   const [name, setName] = useState(initialName)
   const tabNames = infoData.dest_address?.map((item) => item.name)
   // useEffect(() => {
